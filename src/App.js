@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useState, useEffect } from "react";
+import './styles.css'
+
 
 const App = () => {
   const [number, setNumber] = useState(0);
@@ -16,6 +17,7 @@ const App = () => {
     );
     const end = performance.now();
     const elapsedTime = end - start;
+    console.log(elapsedTime)
     setTimes(prev => [...prev, elapsedTime])
   };
 
@@ -54,8 +56,8 @@ const App = () => {
           onChange={(e) => setDelay(e.target.value)}
         />
       </div>
-      <h2>Average time: {average.toFixed(2)}s</h2>
-      <button onClick={handleStart}>Start</button>
+      <h2>Average time: {average ? average.toFixed(2) + 's' : null}</h2>
+      <button onClick={handleStart}>Fetch</button>
     </div>
   );
 };
